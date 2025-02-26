@@ -1,0 +1,66 @@
+spec:
+  properties:
+    Company:
+      type: string
+      description: Company name
+      enum:
+        - vanguard
+    Domain:
+      type: object
+      description: Domain information of the application
+      properties:
+        AppID:
+          type: string
+          description: Application identifier
+          enum:
+            - eqc
+            - afx
+        ProductFamily:
+          type: string
+          description: Product family name
+          enum:
+            - equity
+            - equity platform
+            - GIDM
+        Product:
+          type: string
+          description: Product name
+          enum:
+            - equity platform
+            - equity pm tool
+            - reference and market data management
+        System:
+          type: string
+          description: System name
+    Nodes:
+      type: array
+      description: List of system nodes/components
+      items:
+        type: object
+        properties:
+          Type:
+            type: string
+            description: Type of the node
+            enum:
+              - aws:lambda
+              - aws:dynamodb
+              - aws:apigateway
+              - vanguard:afx:FXAPI
+          Desc:
+            type: string
+            description: Description of the node
+    Relationships:
+      type: array
+      description: List of relationships between nodes
+      items:
+        type: object
+        properties:
+          Start:
+            type: string
+            description: Starting node of the relationship
+          End:
+            type: string
+            description: Ending node of the relationship
+          Desc:
+            type: string
+            description: Description of the relationship 
